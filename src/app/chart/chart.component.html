@@ -1,0 +1,32 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Chart"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <Label class="page-icon fa" text="&#xf1ea;"></Label>
+    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+
+    <Label row="0" text="Monthly sales revenue, 2017" class="chart-example-tytle-style" textWrap="true"></Label>
+    <RadCartesianChart row="1">
+        <CategoricalAxis lineColor="#b0b0b0" lineThickness="1" tkCartesianHorizontalAxis></CategoricalAxis>
+        <LinearAxis lineColor="#b0b0b0" lineThickness="1" tkCartesianVerticalAxis></LinearAxis>
+        <AreaSeries tkCartesianSeries seriesName="Area" categoryProperty="Category" [items]="areaSource" stackMode="Stack"
+            valueProperty="Amount" selectionMode="Series"></AreaSeries>
+        <AreaSeries tkCartesianSeries seriesName="Area" categoryProperty="Category" [items]="areaSource2" stackMode="Stack"
+            valueProperty="Amount" selectionMode="Series"></AreaSeries>
+        <RadCartesianChartGrid tkCartesianGrid horizontalLinesVisible="true" verticalLinesVisible="false"
+            verticalStripLinesVisible="false" horizontalStripLinesVisible="false" horizontalStrokeColor="#e5e5e5"></RadCartesianChartGrid>
+        <Palette tkCartesianPalette seriesName="Area">
+            <PaletteEntry tkCartesianPaletteEntry android:fillColor="#b2efe6" ios:fillColor="#7fe5faf6" strokeColor="#08caab"
+                strokeWidth="2"></PaletteEntry>
+            <PaletteEntry tkCartesianPaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#026968"
+                strokeWidth="2"></PaletteEntry>
+        </Palette>
+        <Palette tkCartesianPalette seriesName="Area" seriesState="Selected">
+            <PaletteEntry tkCartesianPaletteEntry android:fillColor="#b2efe6" ios:fillColor="#7fe5faf6" strokeColor="#026555"
+                strokeWidth="2"></PaletteEntry>
+            <PaletteEntry tkCartesianPaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#003434"
+                strokeWidth="2"></PaletteEntry>
+        </Palette>
+    </RadCartesianChart>
+</GridLayout>

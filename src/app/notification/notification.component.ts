@@ -1,13 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular/router";
-import { DataService, IDataItem } from "../core/data.service";
 
 @Component({
-    selector: "Home",
+    selector: "Notification",
     moduleId: module.id,
-    templateUrl: "./home.component.html"
+    templateUrl: "./notification.component.html"
 })
-export class HomeComponent implements OnInit {
+export class NotificationComponent implements OnInit {
     constructor() {
         // Use the constructor to inject services.
     }

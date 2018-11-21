@@ -1,28 +1,28 @@
 <TabView androidTabsPosition="bottom">
 
     <page-router-outlet
+        *tabItem="{title: 'Notifications', iconSource: getIconSource('notification')}"
+        name="notificationTab">
+    </page-router-outlet>
+
+    <page-router-outlet
+        *tabItem="{title: 'Mood', iconSource: getIconSource('chart')}"
+        name="chartTab">
+    </page-router-outlet>
+
+    <page-router-outlet
         *tabItem="{title: 'Home', iconSource: getIconSource('home')}"
         name="homeTab">
     </page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: 'Browse', iconSource: getIconSource('browse')}"
-        name="browseTab">
+        *tabItem="{title: 'Profile', iconSource: getIconSource('profile')}"
+        name="profileTab">
     </page-router-outlet>
 
     <page-router-outlet
-        *tabItem="{title: 'Home', iconSource: getIconSource('home')}"
-        name="homeTab">
-    </page-router-outlet>
-
-    <page-router-outlet
-        *tabItem="{title: 'Browse', iconSource: getIconSource('browse')}"
-        name="browseTab">
-    </page-router-outlet>
-
-    <page-router-outlet
-        *tabItem="{title: 'Search', iconSource: getIconSource('search')}"
-        name="searchTab">
+        *tabItem="{title: 'Settings', iconSource: getIconSource('settings')}"
+        name="settingsTab">
     </page-router-outlet>
 
 </TabView>
