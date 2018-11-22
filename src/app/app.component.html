@@ -1,28 +1,26 @@
-<TabView androidTabsPosition="bottom">
-
-    <page-router-outlet
-        *tabItem="{title: 'Notifications', iconSource: getIconSource('notification')}"
-        name="notificationTab">
+<FlexboxLayout class="page">
+  <StackLayout class="form" *ngIf="loggingIn">
+    <Label class="header" text="Lugna"></Label>
+    <StackLayout class="input-field">
+      <TextField class="input" hint="Email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="account.email"
+        returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+      <StackLayout class="hr-light"></StackLayout>
+    </StackLayout>
+    <StackLayout class="input-field">
+      <TextField #password class="input" hint="Password" secure="true" [(ngModel)]="account.password"></TextField>
+      <StackLayout class="hr-light"></StackLayout>
+    </StackLayout>
+    <Button text="Login" (tap)="submit()" class="btn btn-primary m-t-20"></Button>
+  </StackLayout>
+  <TabView androidTabsPosition="bottom" *ngIf="!loggingIn">
+    <page-router-outlet *tabItem="{title: 'Notifications', iconSource: getIconSource('notification')}" name="notificationTab">
     </page-router-outlet>
-
-    <page-router-outlet
-        *tabItem="{title: 'Mood', iconSource: getIconSource('chart')}"
-        name="chartTab">
+    <page-router-outlet *tabItem="{title: 'Mood', iconSource: getIconSource('chart')}" name="chartTab">
     </page-router-outlet>
-
-    <page-router-outlet
-        *tabItem="{title: 'Home', iconSource: getIconSource('home')}"
-        name="homeTab">
+    <page-router-outlet *tabItem="{title: 'Home', iconSource: getIconSource('home')}" name="homeTab">
     </page-router-outlet>
-
-    <page-router-outlet
-        *tabItem="{title: 'Profile', iconSource: getIconSource('profile')}"
-        name="profileTab">
+    <page-router-outlet *tabItem="{title: 'Profile', iconSource: getIconSource('profile')}" name="profileTab">
     </page-router-outlet>
-
-    <page-router-outlet
-        *tabItem="{title: 'Settings', iconSource: getIconSource('settings')}"
-        name="settingsTab">
-    </page-router-outlet>
-
-</TabView>
+    <page-router-outlet *tabItem="{title: 'Settings', iconSource: getIconSource('settings')}" name="settingsTab">
+  </TabView>
+</FlexboxLayout>
