@@ -20,7 +20,7 @@ export class AppComponent {
       if (webUserApi.isAuthenticated()) {
         this.loggingIn = false;
       }
-      LoopBackConfig.setBaseURL("http://hci.izusoft.com");
+      LoopBackConfig.setBaseURL("https://hci.izusoft.com");
       LoopBackConfig.setApiVersion("api");
       this.account.email = "bob@test.com";
       this.account.password = "123456";
