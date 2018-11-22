@@ -5,8 +5,7 @@ import { isIOS } from 'platform';
 @Component({
 	moduleId: module.id,
 	selector: 'profile',
-	templateUrl: './profile.component.html',
-	styleUrls: ['./profile.component.css']
+	templateUrl: './profile.component.html'
 })
 
 export class ProfileComponent implements OnInit {
