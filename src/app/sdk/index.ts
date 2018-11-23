@@ -51,6 +51,7 @@ import { RealTime } from './services/core/real.time';
 import { Feeling_logApi } from './services/custom/Feeling_log';
 import { FriendApi } from './services/custom/Friend';
 import { WebUserApi } from './services/custom/WebUser';
+import { NotificationApi } from './services/custom/Notification';
 /**
 * @module SDKNativeModule
 * @description
@@ -77,6 +78,7 @@ export class SDKNativeModule {
         Feeling_logApi,
         FriendApi,
         WebUserApi,
+        NotificationApi,
         { provide: InternalStorage, useClass: StorageNative },
         { provide: SDKStorage, useClass: StorageNative },
         { provide: SocketDriver, useClass: SocketNative }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Feeling_log } from '../../models/Feeling_log';
 import { Friend } from '../../models/Friend';
 import { WebUser } from '../../models/WebUser';
+import { Notification } from '../../models/Notification';
 
 export interface Models { [name: string]: any }
 
@@ -13,6 +14,7 @@ export class SDKModels {
     Feeling_log: Feeling_log,
     Friend: Friend,
     WebUser: WebUser,
+    Notification: Notification,
     
   };
 
