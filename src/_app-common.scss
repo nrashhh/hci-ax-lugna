@@ -21,6 +21,33 @@
         margin-top: 20%;
     }
 }
+.title-text{
+  color: #2699FB;
+  font-size: 40px;
+}
+.button-mood{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 75;
+  height: 75;
+  margin-right: 5;
+}
+
+.button-mood1 {
+  background-image: url("res://mood1");
+}
+.button-mood2 {
+  background-image: url("res://mood2");
+}
+.button-mood3 {
+  background-image: url("res://mood3");
+}
+.button-mood4 {
+  background-image: url("res://mood4");
+}
+.button-mood5 {
+  background-image: url("res://mood5");
+}
 
 //Action bar
 ActionBar .action-bar-title {
