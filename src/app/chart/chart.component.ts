@@ -17,4 +17,7 @@ export class ChartComponent implements OnInit {
       this.data = feelings;
     });
   }
+  onTrackBallContentRequested($event){
+    
+  }
 }

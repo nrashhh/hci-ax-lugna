@@ -4,7 +4,7 @@
 
 <RadCartesianChart tkExampleTitle tkToggleNavButton>
   <RadLegendView tkCartesianLegend position="Top" title="Series type" height="150" enableSelection="true"></RadLegendView>
-  <Trackball tkCartesianTrackball></Trackball>
+  <Trackball tkCartesianTrackball snapMode="AllClosestPoints" showIntersectionPoints="true" (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
   <DateTimeCategoricalAxis tkCartesianHorizontalAxis dateFormat="d-MMM"></DateTimeCategoricalAxis>
   <LinearAxis tkCartesianVerticalAxis></LinearAxis>
 
