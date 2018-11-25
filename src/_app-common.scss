@@ -28,9 +28,11 @@
 .button-mood{
   background-repeat: no-repeat;
   background-size: cover;
-  width: 75;
-  height: 75;
-  margin-right: 5;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 50;
+  height: 50;
+  margin-right: 20;
 }
 
 .button-mood1 {
@@ -47,6 +49,15 @@
 }
 .button-mood5 {
   background-image: url("res://mood5");
+}
+
+.separator {
+  display: block;
+  font-size: 50px;
+  width: 60px;
+  height: 10px;
+  margin: 0 auto;
+  color: #000000;
 }
 
 //Action bar

@@ -1,7 +1,7 @@
 <ActionBar class="action-bar">
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
-
+<!-- 
 <StackLayout class="page page-content">
   <Label class="title-text" text="Hi,"></Label>
   <Label class="title-text" text="Jacob"></Label>
@@ -12,10 +12,27 @@
       <Button class="button-mood button-mood3"></Button>
       <Button class="button-mood button-mood4"></Button>
       <Button class="button-mood button-mood5"></Button>
-      <!-- <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button>
       <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button>
       <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button>
       <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button>
-      <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button> -->
+      <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button>
+      <Button style="width:75;height:75;color:white;border-radius:100;border-width:2;" ></Button>
   </StackLayout>
-</StackLayout>
+</StackLayout> -->
+
+<ScrollView orientation="vertical" sdkExampleTitle sdkToggleNavButton>
+    <StackLayout class="scroll-view" orientation="vertical">
+        <Label class="title-text" text="Hi,"></Label>
+        <Label class="title-text" text="Jacob"></Label>
+
+        <Label id="mood-label" text="Tell us how you're feeling:"></Label>
+        <StackLayout id="mood-selector" orientation="horizontal">
+            <Button class="button-mood button-mood1"></Button>
+            <Button class="button-mood button-mood2"></Button>
+            <Button class="button-mood button-mood3"></Button>
+            <Button class="button-mood button-mood4"></Button>
+            <Button class="button-mood button-mood5"></Button>
+        </StackLayout>
+        <Label class="separator" text="⏤"></Label>
+    </StackLayout>
+</ScrollView>
