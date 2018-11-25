@@ -1,32 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { Feeling_log } from "../sdk/models";
+import { Feeling_logApi } from "../sdk/index";
 
 @Component({
-    selector: "Chart",
-    moduleId: module.id,
-    templateUrl: "./chart.component.html"
+  selector: 'Chart',
+  moduleId: module.id,
+  templateUrl: './chart.component.html'
 })
 export class ChartComponent implements OnInit {
-    gaugeValue: number = 2;
+  data:Feeling_log[];
 
-    areaSource: { Category: string, Amount: number }[] = [
-        { Category: "Mar", Amount: 51 },
-        { Category: "Apr", Amount: 81 },
-        { Category: "May", Amount: 89 },
-        { Category: "Jun", Amount: 97 }
-    ];
+  constructor(private feelingApi: Feeling_logApi) {}
 
-    areaSource2: { Category: string, Amount: number }[] = [
-        { Category: "Mar", Amount: 60 },
-        { Category: "Apr", Amount: 87 },
-        { Category: "May", Amount: 91 },
-        { Category: "Jun", Amount: 95 }
-    ];
-    
-    constructor() {
-        // Use the component constructor to inject providers.
-    }
-
-    ngOnInit(): void {
-        // Use the "ngOnInit" handler to initialize data for the view.
-    }
+  ngOnInit() {
+    this.feelingApi.find().subscribe((feelings: Feeling_log[]) => {
+      this.data = feelings;
+    });
+  }
 }
