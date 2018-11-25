@@ -52,12 +52,27 @@
 }
 
 .separator {
-  display: block;
   font-size: 50px;
   width: 60px;
   height: 10px;
-  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
   color: #000000;
+  margin: 80px 0 80px 0;
+}
+
+.loc-text {
+  margin: 60px 0 20px 0;
+  color: gray;
+  font-size: 15px;
+}
+
+.textarea {
+  font-size: 15px;
+  color: darkgray;
+  border: 2px solid gray;
+  border-width: 2;
+
 }
 
 //Action bar

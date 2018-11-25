@@ -33,6 +33,21 @@
             <Button class="button-mood button-mood4"></Button>
             <Button class="button-mood button-mood5"></Button>
         </StackLayout>
+        <StackLayout orientation="vertical">
+            <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
+            <TextView borderColor="#DEDEDE" borderWidth="2" height="100" class="textarea" [(ngModel)]="tvtext" hint="What's on your mind right now?" class="input input-border"></TextView>
+        </StackLayout>
+
+
         <Label class="separator" text="⏤"></Label>
+        <Label id="friend-label" text="How your friends have been doing:"></Label>
+
+        <GridLayout rows="*" height="700px">
+            <RadCartesianChart row="0">
+                <CategoricalAxis tkCartesianVerticalAxis></CategoricalAxis>
+                <LinearAxis hidden="true" lineHidden="true" tkCartesianHorizontalAxis></LinearAxis>
+                <BarSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></BarSeries>
+            </RadCartesianChart>
+        </GridLayout>
     </StackLayout>
 </ScrollView>
