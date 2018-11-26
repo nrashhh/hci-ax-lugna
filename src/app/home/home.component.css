@@ -2,9 +2,6 @@
     font-size: 70em;
 }
 
-.scroll-view {
-    padding: 0 40px 0 40px;
-}
 
 #mood-selector {
     margin-top: 50px;
@@ -26,7 +23,8 @@
 }
 
 #submit_btn {
-    height: 100px;
+    height: 90px;
     font-size: 15px;
+    font-weight: normal;
     margin-top: 20px;
 }

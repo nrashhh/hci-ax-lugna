@@ -1,10 +1,12 @@
 <ActionBar class="action-bar">
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
+
+<Page class="page">
 <ScrollView orientation="vertical" sdkExampleTitle sdkToggleNavButton>
     <StackLayout class="scroll-view" orientation="vertical">
-        <Label class="title-text" text="Hi,"></Label>
-        <Label class="title-text" [text]="username"></Label>
+        <Label class="h1 title-text" text="Hi,"></Label>
+        <Label class="h1 title-text" [text]="username"></Label>
 
         <Label id="mood-label" text="Tell us how you're feeling:"></Label>
         <StackLayout id="mood-selector" orientation="horizontal">
@@ -16,32 +18,36 @@
         </StackLayout>
         <StackLayout orientation="vertical">
             <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
-            <TextView borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="textarea" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
+            <TextView borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="input input-border" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
             <StackLayout *ngIf="showMore">
                 <StackLayout orientation="horizontal">
                     <Label text="Sleep: "></Label><Label [text]="sleepVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="sleepVal" minValue="0" maxValue="5"></Slider>
+                <Slider [(ngModel)]="sleepVal" minValue="0" maxValue="5" class="slider"></Slider>
                 <StackLayout orientation="horizontal">
                     <Label text="Sugar: "></Label><Label [text]="sugerVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="sugerVal" minValue="0" maxValue="5"></Slider>
+                <Slider [(ngModel)]="sugerVal" minValue="0" maxValue="5" class="slider"></Slider>
                 <StackLayout orientation="horizontal">
                     <Label text="Coffee: "></Label><Label [text]="coffeeVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="coffeeVal" minValue="0" maxValue="5"></Slider>
+                <Slider [(ngModel)]="coffeeVal" minValue="0" maxValue="5" class="slider"></Slider>
                 <StackLayout orientation="horizontal">
                     <Label text="Activity: "></Label><Label [text]="activityVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="activityVal" minValue="0" maxValue="5"></Slider>
+                <Slider [(ngModel)]="activityVal" minValue="0" maxValue="5" class="slider"></Slider>
             </StackLayout>
             <FlexboxLayout justifyContent="space-between">
                 <Label *ngIf="!showMore" style="color: red;" text="Show More" (tap)="openShowMore()"></Label>
                 <Label></Label>
-                <Button width="80" class="btn btn-primary btn-active" id="submit_btn" text="Save" (tap)="submit($event)"></Button>
+                <Button width="80" class="btn btn-primary btn-rounded-sm btn-active" id="submit_btn" text="Save" (tap)="submit($event)"></Button>
             </FlexboxLayout>
         </StackLayout>
-        <Label class="separator" text="⏤"></Label>
+
+
+        <StackLayout class="hr-light m-10"></StackLayout>
+
+
         <Label id="friend-label" text="How your friends have been doing:"></Label>
         <GridLayout rows="*" height="700px">
             <RadCartesianChart row="0">
@@ -52,3 +58,4 @@
         </GridLayout>
     </StackLayout>
 </ScrollView>
+</Page>
