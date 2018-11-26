@@ -6,7 +6,7 @@ import { Feeling_logApi } from '../sdk/index';
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 import { SnackBar } from 'nativescript-snackbar';
 import { WebUserApi } from '../sdk/services';
-
+import { Page } from 'tns-core-modules/ui/page';
 @Component({
   selector: 'Home',
   moduleId: module.id,
@@ -36,13 +36,17 @@ export class HomeComponent implements OnInit {
     { Country: 'Preeti', Amount: 29, SecondVal: 112, ThirdVal: 29 }
   ];
 
-  constructor(private feelingApi: Feeling_logApi, private webUser: WebUserApi) {
+  constructor(private feelingApi: Feeling_logApi, private webUser: WebUserApi, private page: Page) {
     webUser.getCurrent().subscribe((user: WebUser) => {
       this.username = user.username;
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {} 
+  
+  onTVTap(event){
+    event.object.editable = true;
+  }
 
   onMoodClick(mood: number): void {
     this.mood = mood;
