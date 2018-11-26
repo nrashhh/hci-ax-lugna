@@ -17,20 +17,16 @@
     <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee"></SplineSeries>
     <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar"></SplineSeries>
   </RadCartesianChart>
-  <ListView [items]="feeling_data" class="list-group">
+  <ListView class="list-group" [items]="feeling_data" >
     <ng-template let-fd="item">
-      <StackLayout orientation="vertical">
-        <Button [ngClass]="setMoodClass(fd.mood)"></Button>
-        <StackLayout>
-          <Label [text]="fd.createdAt"></Label>
-          <Label [text]="fd.location"></Label>
-          <Label [text]="fd.description"></Label>
-          <Label [text]="fd.mood"></Label>
-          <Label [text]="fd.suger"></Label>
-          <Label [text]="fd.sleep"></Label>
-          <Label [text]="fd.coffee"></Label>
+      <GridLayout class="list-group-item" rows="auto, *" columns="80, *">
+        <Image row="0" col="0" [ngClass]="setMoodClass(fd.mood)" class="thumb img-circle"></Image>
+        <StackLayout row="0" col="1">
+          <Label [text]="fd.createdAt | date:'d/M/yy, h:mm a'" class="list-group-item-text"></Label>
+          <Label [text]="fd.location" class="list-group-item-text"></Label>
+          <Label [text]="fd.description" class="list-group-item-text" textWrap="true"></Label>
         </StackLayout>
-      </StackLayout>
+      </GridLayout>
     </ng-template>
   </ListView>
 </StackLayout>
