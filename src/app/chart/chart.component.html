@@ -2,31 +2,34 @@
   <Label class="action-bar-title" text="Chart"></Label>
 </ActionBar>
 
-<StackLayout>
-  <RadCartesianChart tkExampleTitle tkToggleNavButton row="0" height="200" width="auto">
-    <Trackball tkCartesianTrackball snapMode="AllClosestPoints" showIntersectionPoints="true"
-      (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
-    <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
-    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgMood" legendTitle="Mood"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSleep" legendTitle="Sleep"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar"></SplineSeries>
-</RadCartesianChart>  
-  <ListView [items]="feeling_data" class="list-group">
-    <ng-template let-fd="item">
-      <StackLayout orientation="vertical">
-        <Button [ngClass]="setMoodClass(fd.mood)"></Button>
-        <StackLayout>
-          <Label [text]="fd.createdAt"></Label>
-          <Label [text]="fd.location"></Label>
-          <Label [text]="fd.description"></Label>
-          <Label [text]="fd.mood"></Label>
-          <Label [text]="fd.suger"></Label>
-          <Label [text]="fd.sleep"></Label>
-          <Label [text]="fd.coffee"></Label>
+<ActivityIndicator row="1" busy="true" width="100" height="100" class="activity-indicator" *ngIf="isLoading"></ActivityIndicator>
+<PullToRefresh (refresh)="refreshChart($event)" *ngIf="!isLoading">
+  <StackLayout>
+    <RadCartesianChart tkExampleTitle tkToggleNavButton row="0" height="200" width="auto">
+      <Trackball tkCartesianTrackball snapMode="AllClosestPoints" showIntersectionPoints="true"
+        (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
+      <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+      <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgMood" legendTitle="Mood"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSleep" legendTitle="Sleep"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar"></SplineSeries>
+    </RadCartesianChart>
+    <ListView [items]="feeling_data" class="list-group">
+      <ng-template let-fd="item">
+        <StackLayout orientation="vertical">
+          <Button [ngClass]="setMoodClass(fd.mood)"></Button>
+          <StackLayout>
+            <Label [text]="fd.createdAt"></Label>
+            <Label [text]="fd.location"></Label>
+            <Label [text]="fd.description"></Label>
+            <Label [text]="fd.mood"></Label>
+            <Label [text]="fd.suger"></Label>
+            <Label [text]="fd.sleep"></Label>
+            <Label [text]="fd.coffee"></Label>
+          </StackLayout>
         </StackLayout>
-      </StackLayout>
-    </ng-template>
-  </ListView>
-</StackLayout>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</PullToRefresh>

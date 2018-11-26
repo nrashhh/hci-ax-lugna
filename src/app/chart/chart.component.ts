@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Feeling_log } from "../sdk/models";
 import { Feeling_logApi } from "../sdk/index";
 import { TrackballCustomContentData } from 'nativescript-ui-chart';
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
 
 @Component({
   selector: 'Chart',
@@ -9,11 +11,15 @@ import { TrackballCustomContentData } from 'nativescript-ui-chart';
   templateUrl: './chart.component.html'
 })
 export class ChartComponent implements OnInit {
+  isLoading = true;
   avg_data;
   feeling_data: Feeling_log[];
   constructor(private feelingApi: Feeling_logApi) {}
 
   ngOnInit() {
+    this.loadData();
+  }
+  loadData(cb = undefined){
     var months = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     this.feelingApi.getSummary(null, null).subscribe((feelingAvg) => {
       for (let i = 0; i < feelingAvg.length; i++) {
@@ -22,6 +28,10 @@ export class ChartComponent implements OnInit {
         feelingAvg[i].date = fl.date.getDate() + "-" + months[fl.date.getMonth()];
       }
       this.avg_data = feelingAvg;
+      this.isLoading = false;
+      if(cb != undefined){
+        cb();
+      }
     });
     this.feelingApi.find({
       order: 'createdAt DESC'
@@ -40,5 +50,13 @@ export class ChartComponent implements OnInit {
   }
   setMoodClass(mood: number){
     return "button-mood button-mood" + mood;
+  }
+
+  refreshChart(args){
+    var pullRefresh = args.object;
+    this.isLoading = true;
+    this.loadData(() => {
+      pullRefresh.refreshing = false;
+    });
   }
 }

@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
   constructor(private feelingApi: Feeling_logApi, private webUser: WebUserApi) {
     webUser.getCurrent().subscribe((user: WebUser) => {
       this.username = user.username;
-      console.log(user);
     });
   }
 
