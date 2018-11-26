@@ -12,7 +12,7 @@
     </StackLayout>
     <Button text="Login" (tap)="submit()" class="btn btn-primary m-t-20"></Button>
   </StackLayout>
-  <TabView androidTabsPosition="bottom" *ngIf="!loggingIn">
+  <TabView selectedIndex="2" androidOffscreenTabLimit="0" androidTabsPosition="bottom" *ngIf="!loggingIn">
     <page-router-outlet *tabItem="{title: 'Notifications', iconSource: getIconSource('notification')}" name="notificationTab">
     </page-router-outlet>
     <page-router-outlet *tabItem="{title: 'Mood', iconSource: getIconSource('chart')}" name="chartTab">
