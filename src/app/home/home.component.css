@@ -1,0 +1,33 @@
+.title-text {
+    font-size: 70em;
+}
+
+.scroll-view {
+    padding: 0 40px 0 40px;
+}
+
+#mood-selector {
+    margin-top: 50px;
+}
+
+/* .button-mood {
+    width: 300px;
+    height: 10px;
+    margin-right: 25px;
+} */
+
+#mood-label {
+    margin-top: 150px;
+    margin-bottom: -30px;
+}
+
+#friend-label {
+
+}
+
+#submit_btn {
+    height: 100px;
+    float: right;
+    font-size: 15px;
+    margin-top: 20px;
+}
