@@ -4,22 +4,22 @@ import { isIOS, isAndroid } from 'platform';
 import * as frame from "ui/frame";
 import * as utils from "utils/utils";
 
-function doneTap(args) {
-    var myTextField = args.object;
-    myTextField.dismissSoftInput();
-}
-exports.doneTap = doneTap
+// function doneTap(args) {
+//     var myTextField = args.object;
+//     myTextField.dismissSoftInput();
+// }
+// exports.doneTap = doneTap
 
-function dismissSoftKeyboard() {
-	if (isIOS) {
-		frame.topmost().nativeView.endEditing(true);
-	}
-	if (isAndroid) {
-		utils.ad.dismissSoftInput();
-	}
-}
+// function dismissSoftKeyboard() {
+// 	if (isIOS) {
+// 		frame.topmost().nativeView.endEditing(true);
+// 	}
+// 	if (isAndroid) {
+// 		utils.ad.dismissSoftInput();
+// 	}
+// }
 
-exports.dismissSoftKeyboard = dismissSoftKeyboard;
+// exports.dismissSoftKeyboard = dismissSoftKeyboard;
 
 
 @Component({
