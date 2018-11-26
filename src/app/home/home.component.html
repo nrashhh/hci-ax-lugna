@@ -16,7 +16,7 @@
         </StackLayout>
         <StackLayout orientation="vertical">
             <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
-            <TextView borderColor="#DEDEDE" focus="false" text="" blur="doneTap" borderWidth="2" height="100" class="textarea" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
+            <TextView borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="textarea" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
             <StackLayout *ngIf="showMore">
                 <StackLayout orientation="horizontal">
                     <Label text="Sleep: "></Label><Label [text]="sleepVal"></Label>
