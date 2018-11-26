@@ -8,41 +8,25 @@
       (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
     <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
     <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="date" valueProperty="avgMood" legendTitle="Mood"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="date" valueProperty="avgSleep" legendTitle="Sleep"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar"></SplineSeries>
-  </RadCartesianChart>
-  <ScrollView sdkExampleTitle sdkToggleNavButton>
-    <GridLayout class="m-15" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
-      <Label class="h3 m-5" height="50" row="1" text="Title 2"></Label>
-      <Label class="h3 m-5" height="50" row="2" text="Title 3"></Label>
-      <Label class="h3 m-5" height="50" row="3" text="Title 4"></Label>
-      <Label class="h3 m-5" height="50" row="4" text="Title 5"></Label>
-      <Label class="h3 m-5" height="50" row="5" text="Title 6"></Label>
-      <Label class="h3 m-5" height="50" row="6" text="Title 7"></Label>
-      <Label class="h3 m-5" height="50" row="7" text="Title 8"></Label>
-      <Label class="h3 m-5" height="50" row="8" text="Title 9"></Label>
-      <Label class="h3 m-5" height="50" row="9" text="Title 10"></Label>
-      <Label class="h3 m-5" height="50" row="10" text="Title 10"></Label>
-      <Label class="h3 m-5" height="50" row="11" text="Title 11"></Label>
-      <Label class="h3 m-5" height="50" row="12" text="Title 12"></Label>
-      <Label class="h3 m-5" height="50" row="13" text="Title 13"></Label>
-      <Label class="h3 m-5" height="50" row="14" text="Title 14"></Label>
-      <Label class="h3 m-5" height="50" row="15" text="Title 15"></Label>
-    </GridLayout>
-  </ScrollView>
+    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgMood" legendTitle="Mood"></SplineSeries>
+    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSleep" legendTitle="Sleep"></SplineSeries>
+    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee"></SplineSeries>
+    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar"></SplineSeries>
+</RadCartesianChart>  
+  <ListView [items]="feeling_data" class="list-group">
+    <ng-template let-fd="item">
+      <StackLayout orientation="vertical">
+        <Button [ngClass]="setMoodClass(fd.mood)"></Button>
+        <StackLayout>
+          <Label [text]="fd.createdAt"></Label>
+          <Label [text]="fd.location"></Label>
+          <Label [text]="fd.description"></Label>
+          <Label [text]="fd.mood"></Label>
+          <Label [text]="fd.suger"></Label>
+          <Label [text]="fd.sleep"></Label>
+          <Label [text]="fd.coffee"></Label>
+        </StackLayout>
+      </StackLayout>
+    </ng-template>
+  </ListView>
 </StackLayout>
-<!-- 
-<RadCartesianChart tkExampleTitle tkToggleNavButton row="0">
-    <RadLegendView tkCartesianLegend position="Top" title="Series type" height="150" enableSelection="true"></RadLegendView>
-    <Trackball tkCartesianTrackball snapMode="AllClosestPoints" showIntersectionPoints="true"
-      (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
-    <DateTimeCategoricalAxis tkCartesianHorizontalAxis dateFormat="d-MMM"></DateTimeCategoricalAxis>
-    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="createdAt" valueProperty="mood" legendTitle="Mood"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="createdAt" valueProperty="sleep" legendTitle="Sleep"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="createdAt" valueProperty="coffee" legendTitle="Coffee"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="data" categoryProperty="createdAt" valueProperty="suger" legendTitle="Sugar"></SplineSeries>
-  </RadCartesianChart> -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Feeling_log } from "../sdk/models";
 import { Feeling_logApi } from "../sdk/index";
+import { TrackballCustomContentData } from 'nativescript-ui-chart';
 
 @Component({
   selector: 'Chart',
@@ -8,8 +9,8 @@ import { Feeling_logApi } from "../sdk/index";
   templateUrl: './chart.component.html'
 })
 export class ChartComponent implements OnInit {
-  data:Feeling_log[];
-
+  avg_data;
+  feeling_data: Feeling_log[];
   constructor(private feelingApi: Feeling_logApi) {}
 
   ngOnInit() {
@@ -20,10 +21,24 @@ export class ChartComponent implements OnInit {
         fl.date = new Date(fl.date);
         feelingAvg[i].date = fl.date.getDate() + "-" + months[fl.date.getMonth()];
       }
-      this.data = feelingAvg;
+      this.avg_data = feelingAvg;
+    });
+    this.feelingApi.find({
+      order: 'createdAt DESC'
+    }).subscribe((feelings: Feeling_log[]) => {
+      this.feeling_data = feelings;
     });
   }
-  onTrackBallContentRequested($event){
-    
+  onTrackBallContentRequested(args: TrackballCustomContentData){
+    let feelingAvg = args.pointData;
+      switch (args.seriesIndex) {
+          case 0: args.content = "Mood: " + feelingAvg.avgMood; break;
+          case 1: args.content = "Sleep: " + feelingAvg.avgSleep; break;
+          case 2: args.content = "Coffee: " + feelingAvg.avgCoffee; break;
+          case 3: args.content = "Sugar: " + feelingAvg.avgSuger; break;
+      }
+  }
+  setMoodClass(mood: number){
+    return "button-mood button-mood" + mood;
   }
 }
