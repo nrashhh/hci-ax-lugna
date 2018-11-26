@@ -7,6 +7,7 @@ export interface Feeling_logInterface {
   "sleep"?: number;
   "coffee"?: number;
   "suger"?: number;
+  "location"?: string;
   "id"?: number;
   "createdAt": Date;
   "updatedAt": Date;
@@ -18,6 +19,7 @@ export class Feeling_log implements Feeling_logInterface {
   "sleep": number;
   "coffee": number;
   "suger": number;
+  "location": string;
   "id": number;
   "createdAt": Date;
   "updatedAt": Date;
@@ -73,6 +75,10 @@ export class Feeling_log implements Feeling_logInterface {
         "suger": {
           name: 'suger',
           type: 'number'
+        },
+        "location": {
+          name: 'location',
+          type: 'string'
         },
         "id": {
           name: 'id',
