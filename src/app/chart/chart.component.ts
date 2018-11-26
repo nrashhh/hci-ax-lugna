@@ -52,11 +52,8 @@ export class ChartComponent implements OnInit {
     return "button-mood button-mood" + mood;
   }
 
-  refreshChart(args){
-    var pullRefresh = args.object;
+  refreshChart(){
     this.isLoading = true;
-    this.loadData(() => {
-      pullRefresh.refreshing = false;
-    });
+    this.loadData();
   }
 }

@@ -4,6 +4,7 @@ import { isAndroid } from "tns-core-modules/platform";
 import { Page } from "tns-core-modules/ui/page";
 import { AccessToken, WebUser } from "./sdk/models";
 import { LoopBackConfig, WebUserApi } from "./sdk/index";
+import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 @Component({
     selector: "ns-app",
@@ -37,6 +38,12 @@ export class AppComponent {
       console.log("Logging in");
       this.webUserApi.login(this.account).subscribe((token: AccessToken) => {
         this.loggingIn = false;
+      }, (err: any)=>{
+        dialogs.alert({
+          title: 'Unable to Login',
+          message: 'Your username or password is wrong. Please try again.',
+          okButtonText: 'Ok'
+        });
       });
     }
 }

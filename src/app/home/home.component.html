@@ -10,15 +10,15 @@
 
         <Label id="mood-label" text="Tell us how you're feeling:"></Label>
         <StackLayout id="mood-selector" orientation="horizontal">
-            <Button class="button-mood button-mood1" (tap)="onMoodClick(1)"></Button>
-            <Button class="button-mood button-mood2" (tap)="onMoodClick(2)"></Button>
-            <Button class="button-mood button-mood3" (tap)="onMoodClick(3)"></Button>
-            <Button class="button-mood button-mood4" (tap)="onMoodClick(4)"></Button>
-            <Button class="button-mood button-mood5" (tap)="onMoodClick(5)"></Button>
+            <Button class="button-mood button-mood1" [class.button-mood1-dark]="button1_dark" (tap)="onMoodClick(1)"></Button>
+            <Button class="button-mood button-mood2" [class.button-mood2-dark]="button2_dark" (tap)="onMoodClick(2)"></Button>
+            <Button class="button-mood button-mood3" [class.button-mood3-dark]="button3_dark" (tap)="onMoodClick(3)"></Button>
+            <Button class="button-mood button-mood4" [class.button-mood4-dark]="button4_dark" (tap)="onMoodClick(4)"></Button>
+            <Button class="button-mood button-mood5" [class.button-mood5-dark]="button5_dark" (tap)="onMoodClick(5)"></Button>
         </StackLayout>
         <StackLayout orientation="vertical">
             <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
-            <TextView borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="input input-border" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
+            <TextView #tv editable="false" (tap)="onTVTap($event)" id="textview" #textview borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="textarea" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
             <StackLayout *ngIf="showMore">
                 <StackLayout orientation="horizontal">
                     <Label text="Sleep: "></Label><Label [text]="sleepVal"></Label>

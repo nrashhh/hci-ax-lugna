@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { DataService, IDataItem } from '../core/data.service';
 import { Feeling_log, WebUser } from '../sdk/models';
@@ -6,7 +6,7 @@ import { Feeling_logApi } from '../sdk/index';
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 import { SnackBar } from 'nativescript-snackbar';
 import { WebUserApi } from '../sdk/services';
-
+import { Page } from 'tns-core-modules/ui/page';
 @Component({
   selector: 'Home',
   moduleId: module.id,
@@ -14,6 +14,12 @@ import { WebUserApi } from '../sdk/services';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild("tv") textView;
+  button1_dark: boolean = false;
+  button2_dark: boolean = false;
+  button3_dark: boolean = false;
+  button4_dark: boolean = false;
+  button5_dark: boolean = false;
   username: string = '';
   snackbar = new SnackBar();
   description: string = '';
@@ -36,16 +42,26 @@ export class HomeComponent implements OnInit {
     { Country: 'Preeti', Amount: 29, SecondVal: 112, ThirdVal: 29 }
   ];
 
-  constructor(private feelingApi: Feeling_logApi, private webUser: WebUserApi) {
+  constructor(private feelingApi: Feeling_logApi, private webUser: WebUserApi, private page: Page) {
     webUser.getCurrent().subscribe((user: WebUser) => {
       this.username = user.username;
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {} 
+  
+  onTVTap(event){
+    event.object.editable = true;
+  }
 
   onMoodClick(mood: number): void {
     this.mood = mood;
+    this.button1_dark = true;
+    this.button2_dark = true;
+    this.button3_dark = true;
+    this.button4_dark = true;
+    this.button5_dark = true;
+    this["button" + mood + "_dark"] = false;
   }
 
   openShowMore() {
@@ -71,7 +87,22 @@ export class HomeComponent implements OnInit {
     feeling.activity = this.activityVal;
     console.log('Create', feeling);
     this.feelingApi.create(feeling).subscribe((fl: Feeling_log) => {
-      this.snackbar.simple('Added log.');
+      this.snackbar.simple('Mood log saved.');
+      this.coffeeVal = 0;
+      this.mood = 0;
+      this.sleepVal = 0;
+      this.sugerVal = 0;
+      this.activityVal = 0;
+      this.button1_dark = false;
+      this.button2_dark = false;
+      this.button3_dark = false;
+      this.button4_dark = false;
+      this.button5_dark = false;
+      this.showMore = false;
+      this.description = "";
+      this.textView.nativeElement.editable = false;
+      this.textView.nativeElement.dismissSoftInput();
+      this.textView.nativeElement.android.clearFocus();
     });
   }
 }
