@@ -36,6 +36,10 @@
         <StackLayout orientation="vertical">
             <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
             <TextView borderColor="#DEDEDE" borderWidth="2" height="100" class="textarea" [(ngModel)]="tvtext" hint="What's on your mind right now?" class="input input-border"></TextView>
+
+            <DockLayout>
+                    <Button width="80" dock="right" class="btn btn-primary btn-active" id="submit_btn" text="Save" (tap)="onTap($event)"></Button>
+            </DockLayout>
         </StackLayout>
 
 
