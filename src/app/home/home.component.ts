@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { DataService, IDataItem } from '../core/data.service';
-import { Feeling_log } from '../sdk/models';
+import { Feeling_log, WebUser } from '../sdk/models';
 import { Feeling_logApi } from '../sdk/index';
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 import { SnackBar } from 'nativescript-snackbar';
+import { WebUserApi } from '../sdk/services';
 
 @Component({
   selector: 'Home',
@@ -13,6 +14,7 @@ import { SnackBar } from 'nativescript-snackbar';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  username: string = '';
   snackbar = new SnackBar();
   description: string = '';
   location: string = 'SIT@RP';
@@ -34,7 +36,12 @@ export class HomeComponent implements OnInit {
     { Country: 'Preeti', Amount: 29, SecondVal: 112, ThirdVal: 29 }
   ];
 
-  constructor(private feelingApi: Feeling_logApi) {}
+  constructor(private feelingApi: Feeling_logApi, private webUser: WebUserApi) {
+    webUser.getCurrent().subscribe((user: WebUser) => {
+      this.username = user.username;
+      console.log(user);
+    });
+  }
 
   ngOnInit(): void {}
 
