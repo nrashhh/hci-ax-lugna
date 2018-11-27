@@ -8,7 +8,7 @@
         <Label class="h1 title-text" text="Hi,"></Label>
         <Label class="h1 title-text" [text]="username"></Label>
 
-        <Label id="mood-label" text="Tell us how you're feeling:"></Label>
+        <Label id="mood-label" style="font-size: 20px;" text="Tell us how you're feeling:"></Label>
         <StackLayout id="mood-selector" orientation="horizontal">
             <Button class="button-mood button-mood1" [class.button-mood1-dark]="button1_dark" (tap)="onMoodClick(1)"></Button>
             <Button class="button-mood button-mood2" [class.button-mood2-dark]="button2_dark" (tap)="onMoodClick(2)"></Button>
@@ -48,7 +48,7 @@
         <StackLayout class="hr-light m-10"></StackLayout>
 
 
-        <Label id="friend-label" text="How your friends have been doing:"></Label>
+        <Label id="friend-label" style="font-size: 20px;" text="How your friends have been doing:"></Label>
         <GridLayout rows="*" height="700px">
             <RadCartesianChart row="0">
                 <CategoricalAxis tkCartesianVerticalAxis></CategoricalAxis>
