@@ -1,7 +1,4 @@
 /* tslint:disable */
-import {
-  Notification
-} from '../index';
 
 declare var Object: any;
 export interface WebUserInterface {
@@ -12,7 +9,6 @@ export interface WebUserInterface {
   "id"?: number;
   "password"?: string;
   accessTokens?: any[];
-  notifications?: Notification[];
 }
 
 export class WebUser implements WebUserInterface {
@@ -23,7 +19,6 @@ export class WebUser implements WebUserInterface {
   "id": number;
   "password": string;
   accessTokens: any[];
-  notifications: Notification[];
   constructor(data?: WebUserInterface) {
     Object.assign(this, data);
   }
@@ -90,14 +85,6 @@ export class WebUser implements WebUserInterface {
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'userId'
-        },
-        notifications: {
-          name: 'notifications',
-          type: 'Notification[]',
-          model: 'Notification',
-          relationType: 'hasMany',
-                  keyFrom: 'id',
-          keyTo: 'webUserId'
         },
       }
     }

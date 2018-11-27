@@ -7,6 +7,9 @@ import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular";
 import { AppRoutingModule, COMPONENTS } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SDKNativeModule } from "./sdk/index";
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
+
 @NgModule({
     bootstrap: [
         AppComponent

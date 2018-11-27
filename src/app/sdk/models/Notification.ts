@@ -3,16 +3,18 @@
 declare var Object: any;
 export interface NotificationInterface {
   "message": string;
-  "notificationTime"?: Date;
+  "title": string;
   "id"?: number;
-  "webUserId"?: number;
+  "createdAt": Date;
+  "updatedAt": Date;
 }
 
 export class Notification implements NotificationInterface {
   "message": string;
-  "notificationTime": Date;
+  "title": string;
   "id": number;
-  "webUserId": number;
+  "createdAt": Date;
+  "updatedAt": Date;
   constructor(data?: NotificationInterface) {
     Object.assign(this, data);
   }
@@ -50,17 +52,21 @@ export class Notification implements NotificationInterface {
           name: 'message',
           type: 'string'
         },
-        "notificationTime": {
-          name: 'notificationTime',
-          type: 'Date'
+        "title": {
+          name: 'title',
+          type: 'string'
         },
         "id": {
           name: 'id',
           type: 'number'
         },
-        "webUserId": {
-          name: 'webUserId',
-          type: 'number'
+        "createdAt": {
+          name: 'createdAt',
+          type: 'Date'
+        },
+        "updatedAt": {
+          name: 'updatedAt',
+          type: 'Date'
         },
       },
       relations: {

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Feeling_log } from "../sdk/models";
 import { Feeling_logApi } from "../sdk/index";
 import { TrackballCustomContentData } from 'nativescript-ui-chart';
-import { registerElement } from "nativescript-angular/element-registry";
-registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
 
 @Component({
   selector: 'Chart',
