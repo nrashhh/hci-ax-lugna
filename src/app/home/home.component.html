@@ -6,7 +6,7 @@
 <ScrollView orientation="vertical" sdkExampleTitle sdkToggleNavButton>
     <StackLayout class="scroll-view" orientation="vertical">
         <Label class="h1 title-text" text="Hi,"></Label>
-        <Label class="h1 title-text" [text]="username"></Label>
+        <Label style="margin-top: -30px;" class="h1 title-text" [text]="username"></Label>
 
         <Label id="mood-label" style="font-size: 20px;" text="Tell us how you're feeling:"></Label>
         <StackLayout id="mood-selector" orientation="horizontal">
@@ -19,7 +19,7 @@
         <StackLayout orientation="vertical">
             <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
             <TextView #tv editable="false" (tap)="onTVTap($event)" id="textview" #textview borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="textarea" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
-            <StackLayout *ngIf="showMore">
+            <StackLayout style="margin-top: 20px;" *ngIf="showMore">
                 <StackLayout orientation="horizontal">
                     <Label text="Sleep: "></Label><Label [text]="sleepVal"></Label>
                 </StackLayout>
@@ -38,9 +38,9 @@
                 <slider [(ngModel)]="activityVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
             </StackLayout>
             <FlexboxLayout justifyContent="space-between">
-                <Label *ngIf="!showMore" style="color: red;" text="Show More" (tap)="openShowMore()"></Label>
+                <Label *ngIf="!showMore" style="margin-top: 50px;" class="fas" text="ADD MORE  &#xf078;" (tap)="openShowMore()"></Label>
                 <Label></Label>
-                <Button width="80" class="btn btn-primary btn-rounded-sm btn-active" id="submit_btn" text="Save" (tap)="submit($event)"></Button>
+                <Button width="160" class="btn btn-primary btn-rounded-sm btn-active" id="submit_btn" text="Add to Journal" (tap)="submit($event)"></Button>
             </FlexboxLayout>
         </StackLayout>
 
