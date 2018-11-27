@@ -41,7 +41,7 @@
         <Label text="Activity"></Label>
       </StackLayout>
     </FlexboxLayout>
-    <Label id="mood-label" style="font-size: 20px;" text="Here is the pass week:"></Label>
+    <Label id="mood-label" style="font-size: 20px; margin-top: 70px; margin-bottom: 10px" text="Entries from this week:"></Label>
     <ListView class="list-group" [items]="feeling_data" >
       <ng-template let-fd="item">
         <GridLayout class="list-group-item" rows="auto, *" columns="55, *, 90">
@@ -56,19 +56,19 @@
           </StackLayout>
           <GridLayout row="0" col="2" rows="auto, auto" columns="*,*">
             <FlexboxLayout row="0" col="0" justifyContent="space-between" style="margin-right: 15px;">
-                <Label class="fa" text="&#xf1b3;" color="#F1BB35"></Label>
+                <Label style="margin-left: 10px;" class="fa" text="&#xf1b3;" color="#F1BB35"></Label>
                 <Label [text]="fd.suger"></Label>
             </FlexboxLayout>
             <FlexboxLayout row="0" col="1" justifyContent="space-between">
-                <Label class="fa" text="&#xf236;" color="#9F71BC"></Label>
+                <Label style="margin-left: 25px;" class="fa" text="&#xf236;" color="#9F71BC"></Label>
                 <Label [text]="fd.sleep"></Label>    
             </FlexboxLayout>
-            <FlexboxLayout row="1" col="0" justifyContent="space-between" style="margin-right: 15px;">
-                <Label class="fas" text="&#xf70c;" color="#FB3F3E"></Label>
+            <FlexboxLayout row="1" col="0" justifyContent="space-between" style="margin-top: 20px; margin-right: 15px;">
+                <Label style="margin-left: 20px;" class="fas" text="&#xf70c;" color="#FB3F3E"></Label>
                 <Label [text]="fd.activity"></Label>    
             </FlexboxLayout>
-            <FlexboxLayout row="1" col="1" justifyContent="space-between">
-                <Label class="fa" text="&#xf0f4;" color="#9FC61B"></Label>
+            <FlexboxLayout style="margin-top: 20px;" row="1" col="1" justifyContent="space-between">
+                <Label style="margin-left: 25px;" class="fa" text="&#xf0f4;" color="#9FC61B"></Label>
                 <Label [text]="fd.coffee"></Label>    
             </FlexboxLayout>
           </GridLayout>
