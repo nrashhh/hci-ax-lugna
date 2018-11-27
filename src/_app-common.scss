@@ -1,8 +1,13 @@
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
 // Font icon class
+@import '~nativescript-theme-core/css/forest.css';
+
 .fa {
    font-family: "FontAwesome";
+}
+.fas {
+  font-family: "fa-solid-900";
 }
 // Common page class
 .page-content {
@@ -21,8 +26,139 @@
         margin-top: 20%;
     }
 }
+.title-text{
+  // color: #2699FB;
+  font-weight: bold;
+  color: #5a5a5a;
+  font-size: 40px;
+}
+
+.scroll-view {
+  padding: 0 40px 0 40px;
+}
+
+.button-mood{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 50;
+  height: 50;
+  margin-right: 20;
+}
+
+.button-mood1 {
+  background-image: url("res://mood1");
+}
+.button-mood2 {
+  background-image: url("res://mood2");
+}
+.button-mood3 {
+  background-image: url("res://mood3");
+}
+.button-mood4 {
+  background-image: url("res://mood4");
+}
+.button-mood5 {
+  background-image: url("res://mood5");
+}
+
+.button-mood1-dark {
+  background-image: url("res://mood1_dark") !important; 
+}
+.button-mood2-dark {
+  background-image: url("res://mood2_dark") !important;
+}
+.button-mood3-dark {
+  background-image: url("res://mood3_dark") !important;
+}
+.button-mood4-dark {
+  background-image: url("res://mood4_dark") !important;
+}
+.button-mood5-dark {
+  background-image: url("res://mood5_dark") !important;
+}
+
+.separator {
+  font-size: 50px;
+  width: 60px;
+  height: 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #000000;
+  margin: 80px 0 80px 0;
+}
+
+.loc-text {
+  margin: 60px 0 20px 0;
+  color: gray;
+  font-size: 15px;
+}
+
+.textarea {
+  font-size: 15px;
+  color: darkgray;
+  border: 2px solid gray;
+  border-width: 2;
+
+}
 
 //Action bar
 ActionBar .action-bar-title {
     horizontal-align: center;
+}
+
+
+[hidden] { display: none !important;}
+.page {
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  margin-left: 30;
+  margin-right: 30;
+  flex-grow: 2;
+  vertical-align: middle;
+}
+
+.logo {
+  margin-bottom: 12;
+  height: 90;
+  font-weight: bold;
+}
+.header {
+  horizontal-align: center;
+  font-size: 25;
+  font-weight: 600;
+  margin-bottom: 70;
+  text-align: center;
+  color: #2699FB;
+}
+
+.input-field {
+  margin-bottom: 25;
+}
+.input {
+  font-size: 18;
+  placeholder-color: #A8A8A8;
+}
+
+.btn-primary {
+  height: 50;
+  margin: 30 5 15 5;
+  background-color: #2699FB;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+}
+.login-label {
+  horizontal-align: center;
+  color: #A8A8A8;
+  font-size: 16;
+}
+.sign-up-label {
+  margin-bottom: 20;
+}
+.bold {
+  color: #000000; 
 }

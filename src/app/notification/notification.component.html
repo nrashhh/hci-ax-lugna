@@ -1,0 +1,16 @@
+<ActionBar class="action-bar">
+  <Label class="action-bar-title" text="Notifications"></Label>
+  <ActionItem (tap)="refreshNoti()"
+      ios.systemIcon="13" ios.position="right"
+      android.systemIcon="ic_menu_refresh" android.position="actionBar"></ActionItem>
+</ActionBar>
+<PullToRefresh #ptr (refresh)="refreshList()">
+  <ListView class="list-group" [items]="notifications">
+    <ng-template let-noti="item">
+        <GridLayout class="list-group-item" rows="auto, *" columns="*">
+          <Label row="0" col="1" [text]="noti.title" class="list-group-item-heading"></Label>
+          <Label row="1" col="1" [text]="noti.message" textWrap="true" class="list-group-item-text"></Label>
+        </GridLayout>
+    </ng-template>
+  </ListView>
+</PullToRefresh>

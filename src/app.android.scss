@@ -2,6 +2,7 @@
 @import 'app-variables';
 
 // Import the theme’s main ruleset - both index and platform specific.
+@import '~nativescript-theme-core/css/forest.css';
 @import '~nativescript-theme-core/scss/index';
 @import '~nativescript-theme-core/scss/platforms/index.android';
 

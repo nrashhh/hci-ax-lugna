@@ -1,0 +1,16 @@
+<FlexboxLayout class="page">
+	<StackLayout class="form">
+		<Label class="header" text="Lugna"></Label>
+    <Label [text]='email'></Label>
+		<StackLayout class="input-field">
+			<TextField class="input" hint="Email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="account.email" returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+			<StackLayout class="hr-light"></StackLayout>
+		</StackLayout>
+
+		<StackLayout class="input-field">
+			<TextField #password class="input" hint="Password" secure="true" [(ngModel)]="account.password"></TextField>
+			<StackLayout class="hr-light"></StackLayout>
+		</StackLayout>
+    <Button text="Login" (tap)="submit()" class="btn btn-primary m-t-20"></Button>
+	</StackLayout>
+</FlexboxLayout>

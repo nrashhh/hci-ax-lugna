@@ -2,10 +2,60 @@
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <ListView [items]="items" class="list-group">
-        <ng-template let-item="item">
-            <Label [nsRouterLink]="['../item', item.id]" [text]="item.name" class="list-group-item"></Label>
-        </ng-template>
-    </ListView>
-</GridLayout>
+<Page class="page">
+<ScrollView orientation="vertical" sdkExampleTitle sdkToggleNavButton>
+    <StackLayout class="scroll-view" orientation="vertical">
+        <Label class="h1 title-text" text="Hi,"></Label>
+        <Label style="margin-top: -30px;" class="h1 title-text" [text]="username"></Label>
+
+        <Label id="mood-label" style="font-size: 20px;" text="Tell us how you're feeling:"></Label>
+        <StackLayout id="mood-selector" orientation="horizontal">
+            <Button class="button-mood button-mood1" [class.button-mood1-dark]="button1_dark" (tap)="onMoodClick(1)"></Button>
+            <Button class="button-mood button-mood2" [class.button-mood2-dark]="button2_dark" (tap)="onMoodClick(2)"></Button>
+            <Button class="button-mood button-mood3" [class.button-mood3-dark]="button3_dark" (tap)="onMoodClick(3)"></Button>
+            <Button class="button-mood button-mood4" [class.button-mood4-dark]="button4_dark" (tap)="onMoodClick(4)"></Button>
+            <Button class="button-mood button-mood5" [class.button-mood5-dark]="button5_dark" (tap)="onMoodClick(5)"></Button>
+        </StackLayout>
+        <StackLayout orientation="vertical">
+            <Label class="fa loc-text" text="&#xf041; SIT@RP"></Label>
+            <TextView #tv editable="false" (tap)="onTVTap($event)" id="textview" #textview borderColor="#DEDEDE" focus="false" text="" borderWidth="2" height="100" class="textarea" [(ngModel)]="description" hint="What's on your mind right now?" class="input input-border"></TextView>
+            <StackLayout style="margin-top: 20px;" *ngIf="showMore">
+                <StackLayout orientation="horizontal">
+                    <Label text="Sleep: "></Label><Label [text]="sleepVal"></Label>
+                </StackLayout>
+                <slider [(ngModel)]="sleepVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
+                <StackLayout orientation="horizontal">
+                    <Label text="Sugar: "></Label><Label [text]="sugerVal"></Label>
+                </StackLayout>
+                <slider [(ngModel)]="sugerVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
+                <StackLayout orientation="horizontal">
+                    <Label text="Coffee: "></Label><Label [text]="coffeeVal"></Label>
+                </StackLayout>
+                <slider [(ngModel)]="coffeeVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
+                <StackLayout orientation="horizontal">
+                    <Label text="Activity: "></Label><Label [text]="activityVal"></Label>
+                </StackLayout>
+                <slider [(ngModel)]="activityVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
+            </StackLayout>
+            <FlexboxLayout justifyContent="space-between">
+                <Label *ngIf="!showMore" style="margin-top: 50px;" class="fas" text="ADD MORE  &#xf078;" (tap)="openShowMore()"></Label>
+                <Label></Label>
+                <Button width="160" class="btn btn-primary btn-rounded-sm btn-active" id="submit_btn" text="Add to Journal" (tap)="submit($event)"></Button>
+            </FlexboxLayout>
+        </StackLayout>
+
+
+        <StackLayout class="hr-light m-10"></StackLayout>
+
+
+        <Label id="friend-label" style="font-size: 20px;" text="How your friends have been doing:"></Label>
+        <GridLayout rows="*" height="700px">
+            <RadCartesianChart row="0">
+                <CategoricalAxis tkCartesianVerticalAxis></CategoricalAxis>
+                <LinearAxis hidden="true" lineHidden="true" tkCartesianHorizontalAxis></LinearAxis>
+                <BarSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></BarSeries>
+            </RadCartesianChart>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>
+</Page>
