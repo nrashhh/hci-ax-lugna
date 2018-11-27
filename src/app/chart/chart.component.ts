@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Feeling_log } from "../sdk/models";
 import { Feeling_logApi } from "../sdk/index";
 import { TrackballCustomContentData } from 'nativescript-ui-chart';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'Chart',
@@ -12,7 +13,11 @@ export class ChartComponent implements OnInit {
   isLoading = true;
   avg_data;
   feeling_data: Feeling_log[];
-  constructor(private feelingApi: Feeling_logApi) {}
+  constructor(private feelingApi: Feeling_logApi, private globalService: GlobalService) {
+    globalService.chartRefreshFunc = () => {
+      this.refreshChart();
+    };
+  }
 
   ngOnInit() {
     this.loadData();
@@ -40,10 +45,11 @@ export class ChartComponent implements OnInit {
   onTrackBallContentRequested(args: TrackballCustomContentData){
     let feelingAvg = args.pointData;
       switch (args.seriesIndex) {
-          case 0: args.content = "Mood: " + feelingAvg.avgMood; break;
-          case 1: args.content = "Sleep: " + feelingAvg.avgSleep; break;
-          case 2: args.content = "Coffee: " + feelingAvg.avgCoffee; break;
-          case 3: args.content = "Sugar: " + feelingAvg.avgSuger; break;
+          case 0: args.content = "Mood: " + feelingAvg.avgMood.toFixed(2); break;
+          case 1: args.content = "Sleep: " + feelingAvg.avgSleep.toFixed(2); break;
+          case 2: args.content = "Coffee: " + feelingAvg.avgCoffee.toFixed(2); break;
+          case 3: args.content = "Sugar: " + feelingAvg.avgSuger.toFixed(2); break;
+          case 4: args.content = "Activity: " + feelingAvg.avgActivity.toFixed(2); break;
       }
   }
   setMoodClass(mood: number){

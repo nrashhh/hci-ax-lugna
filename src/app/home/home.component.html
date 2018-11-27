@@ -23,19 +23,19 @@
                 <StackLayout orientation="horizontal">
                     <Label text="Sleep: "></Label><Label [text]="sleepVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="sleepVal" minValue="0" maxValue="5" class="slider"></Slider>
+                <slider [(ngModel)]="sleepVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
                 <StackLayout orientation="horizontal">
                     <Label text="Sugar: "></Label><Label [text]="sugerVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="sugerVal" minValue="0" maxValue="5" class="slider"></Slider>
+                <slider [(ngModel)]="sugerVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
                 <StackLayout orientation="horizontal">
                     <Label text="Coffee: "></Label><Label [text]="coffeeVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="coffeeVal" minValue="0" maxValue="5" class="slider"></Slider>
+                <slider [(ngModel)]="coffeeVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
                 <StackLayout orientation="horizontal">
                     <Label text="Activity: "></Label><Label [text]="activityVal"></Label>
                 </StackLayout>
-                <Slider [(ngModel)]="activityVal" minValue="0" maxValue="5" class="slider"></Slider>
+                <slider [(ngModel)]="activityVal" minValue="0" maxValue="5" class="slider" (ngModelChange)="onDragged($event)"></slider>
             </StackLayout>
             <FlexboxLayout justifyContent="space-between">
                 <Label *ngIf="!showMore" style="color: red;" text="Show More" (tap)="openShowMore()"></Label>

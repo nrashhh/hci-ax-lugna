@@ -13,6 +13,7 @@ import * as dialogs from 'tns-core-modules/ui/dialogs';
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
+    currentIndex: number = 2;
     loggingIn: boolean = true;
     account: WebUser = new WebUser();
     @ViewChild("password") password: ElementRef;

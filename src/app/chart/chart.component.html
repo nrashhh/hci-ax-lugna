@@ -5,28 +5,53 @@
       android.systemIcon="ic_menu_refresh" android.position="actionBar"></ActionItem>
 </ActionBar>
 
-<ActivityIndicator row="1" busy="true" width="100" height="100" class="activity-indicator" *ngIf="isLoading"></ActivityIndicator>
-<StackLayout *ngIf="!isLoading">
-  <RadCartesianChart tkExampleTitle tkToggleNavButton row="0" height="200" width="auto">
-    <Trackball tkCartesianTrackball snapMode="AllClosestPoints" showIntersectionPoints="true"
-      (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
-    <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
-    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgMood" legendTitle="Mood"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSleep" legendTitle="Sleep"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee"></SplineSeries>
-    <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar"></SplineSeries>
-  </RadCartesianChart>
-  <ListView class="list-group" [items]="feeling_data" >
-    <ng-template let-fd="item">
-      <GridLayout class="list-group-item" rows="auto, *" columns="80, *">
-        <Image row="0" col="0" [ngClass]="setMoodClass(fd.mood)" class="thumb img-circle"></Image>
-        <StackLayout row="0" col="1">
-          <Label [text]="fd.createdAt | date:'d/M/yy, h:mm a'" class="list-group-item-text"></Label>
-          <Label [text]="fd.location" class="list-group-item-text"></Label>
-          <Label [text]="fd.description" class="list-group-item-text" textWrap="true"></Label>
-        </StackLayout>
-      </GridLayout>
-    </ng-template>
-  </ListView>
-</StackLayout>
+<Page class="page" style="margin-left: 10px; margin-right: 10px;">
+  <ActivityIndicator row="1" busy="true" width="100" height="100" class="activity-indicator" *ngIf="isLoading"></ActivityIndicator>
+  <StackLayout *ngIf="!isLoading">
+    <RadCartesianChart tkExampleTitle tkToggleNavButton row="0" height="200" width="auto">
+      <Trackball tkCartesianTrackball snapMode="AllClosestPoints" showIntersectionPoints="true"
+        (trackBallContentRequested)="onTrackBallContentRequested($event)"></Trackball>
+      <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+      <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgMood" legendTitle="Mood" strokeColor="#55B3E7"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSleep" legendTitle="Sleep" strokeColor="#9F71BC"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgCoffee" legendTitle="Coffee" strokeColor="#9FC61B"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgSuger" legendTitle="Sugar" strokeColor="#F1BB35"></SplineSeries>
+      <SplineSeries tkCartesianSeries [items]="avg_data" categoryProperty="date" valueProperty="avgActivity" legendTitle="Activity" strokeColor="#FB3F3E"></SplineSeries>
+    </RadCartesianChart>
+    <FlexboxLayout justifyContent="space-between">
+      <StackLayout orientation="horizontal">
+          <ContentView width="50px" height="50px" style="background-color: #55B3E7;" ></ContentView>
+          <Label text="Mood"></Label>
+      </StackLayout>
+      <StackLayout orientation="horizontal">
+          <ContentView width="50px" height="50px" style="background-color: #9F71BC;" ></ContentView>
+        <Label text="Sleep"></Label>
+      </StackLayout>
+      <StackLayout orientation="horizontal">
+          <ContentView width="50px" height="50px" style="background-color: #9FC61B;" ></ContentView>
+        <Label text="Coffee"></Label>
+      </StackLayout>
+      <StackLayout orientation="horizontal">
+          <ContentView width="50px" height="50px" style="background-color: #F1BB35;" ></ContentView>
+        <Label text="Sugar"></Label>
+      </StackLayout>
+      <StackLayout orientation="horizontal">
+          <ContentView width="50px" height="50px" style="background-color: #FB3F3E;" ></ContentView>
+        <Label text="Activity"></Label>
+      </StackLayout>
+    </FlexboxLayout>
+    <ListView class="list-group" [items]="feeling_data" >
+      <ng-template let-fd="item">
+        <GridLayout class="list-group-item" rows="auto, *" columns="80, *">
+          <Image row="0" col="0" [ngClass]="setMoodClass(fd.mood)" class="thumb img-circle"></Image>
+          <StackLayout row="0" col="1">
+            <Label [text]="fd.createdAt | date:'d/M/yy, h:mm a'" class="list-group-item-text"></Label>
+            <Label [text]="fd.location" class="list-group-item-text"></Label>
+            <Label [text]="fd.description" class="list-group-item-text" textWrap="true"></Label>
+          </StackLayout>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</Page>
